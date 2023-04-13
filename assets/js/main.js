@@ -57,9 +57,18 @@ const prev = document.querySelector(`#prev`)
 
 const next = document.querySelector(`#next`)
 
+// CONTENITORE IMMAGINI
 const photo = document.querySelector('#foto')
 
-// let play = true
+// VARIABILE PER CAMBIARE LE IMMAGINI
+let indexActive = 0;
+
+// COSTANTI PLAY/PAUSE
+const play = document.querySelector('#play')
+
+const pause = document.querySelector('#pause')
+
+// let soldatino = true
 
 photo.innerHTML = 
 `
@@ -68,22 +77,36 @@ photo.innerHTML =
 </div> 
 `
 
-// let changePhoto = setInterval(function(){
-//     // INTERVALLI DI STAMPA IN PAGINA
-//     for(let i=0; i<images.length; i++){
-//         photo.innerHTML = 
-//         `
-//         <div class="item active first">
-//             <img src="${images[i].image}" alt="" height="500px" width="400px">
-//         </div> 
-//         `
-//     }
-// },3000)
+// INTERVALLI DI CAMBIO FOTO
+let autoChange = setInterval(function(){
+    if(indexActive>=4){
+        indexActive = 0
+    } else{
+        indexActive++
+    }
+    photo.innerHTML = 
+    `
+    <div class="item active first">
+        <img src="${images[indexActive].image}" alt="" height="500px" width="400px">
+    </div> 
+    `
+},3000)
 
-let indexActive = 0;
+// STOP INTERVALLI
+pause.addEventListener('click', function(){
+    clearInterval(autoChange)
+    pause.classList.remove('active')
+    play.classList.add('active')
+})
+
+// RIPRESA AUTO-CHANGE
+play.addEventListener('click', function(){
+    play.classList.remove('active')
+    pause.classList.add('active')
+})
 
 // CLICK ARROW AVANTI
-next.addEventListener(`click`, function(){
+next.addEventListener('click', function(){
     if(indexActive>=4){
         indexActive = 0
     } else{
@@ -97,6 +120,7 @@ next.addEventListener(`click`, function(){
     `
 })
 
+// CLICK ARROW INDIETRO
 prev.addEventListener(`click`, function(){
     if(indexActive==0){
         indexActive = 5
