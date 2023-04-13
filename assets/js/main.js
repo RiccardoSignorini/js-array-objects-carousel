@@ -59,6 +59,8 @@ const next = document.querySelector(`#next`)
 
 const photo = document.querySelector('#foto')
 
+// let play = true
+
 photo.innerHTML = 
 `
 <div class="item active first">
@@ -66,6 +68,18 @@ photo.innerHTML =
 </div> 
 `
 
+changePhoto = setInterval(function(){
+    // INTERVALLI DI STAMPA IN PAGINA
+    for(let i=0; i<images.length; i++){
+        photo.innerHTML = 
+        `
+        <div class="item active first">
+            <img src="${images[i].image}" alt="" height="500px" width="400px">
+        </div> 
+        `
+    }
+
+},3000)
 
 // CLICK ARROW AVANTI
 // next.addEventListener(`click`, function(){
