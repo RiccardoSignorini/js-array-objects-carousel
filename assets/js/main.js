@@ -78,29 +78,30 @@ photo.innerHTML =
 `
 
 // INTERVALLI DI CAMBIO FOTO
-let autoChange = setInterval(function(){
-    if(indexActive>=4){
-        indexActive = 0
-    } else{
-        indexActive++
-    }
-    photo.innerHTML = 
-    `
-    <div class="item active first">
-        <img src="${images[indexActive].image}" alt="" height="500px" width="400px">
-    </div> 
-    `
-},3000)
+// let autoChange = setInterval(function(){
+//     if(indexActive>=4){
+//         indexActive = 0
+//     } else{
+//         indexActive++
+//     }
+//     photo.innerHTML = 
+//     `
+//     <div class="item active first">
+//         <img src="${images[indexActive].image}" alt="" height="500px" width="400px">
+//     </div> 
+//     `
+// },3000)
 
-// STOP INTERVALLI
+// STOP AUTOPLAY
 pause.addEventListener('click', function(){
     clearInterval(autoChange)
     pause.classList.remove('active')
     play.classList.add('active')
 })
 
-// RIPRESA AUTO-CHANGE
+// AUTOPLAY
 play.addEventListener('click', function(){
+    // INTERVALLI AUTOPLAY
     autoChange = setInterval(function(){
         if(indexActive>=4){
             indexActive = 0
@@ -136,11 +137,10 @@ next.addEventListener('click', function(){
 // CLICK ARROW INDIETRO
 prev.addEventListener(`click`, function(){
     if(indexActive==0){
-        indexActive = 5
+        indexActive = 4
     } else{
         indexActive--
     }
-    indexActive--;
     photo.innerHTML = 
     `
     <div class="item active first">
