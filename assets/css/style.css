@@ -1,0 +1,23 @@
+.carousel{
+    height: 80%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+i{
+    padding: 0.4rem;
+    color: white;
+    opacity: 0.6;
+}
+
+i:hover{
+    opacity: 1;
+}
+
+.item{
+    display: none;
+}
+
+.item.active{
+    display: inline;
+}
