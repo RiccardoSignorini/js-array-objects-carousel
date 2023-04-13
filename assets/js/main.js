@@ -68,21 +68,41 @@ photo.innerHTML =
 </div> 
 `
 
-changePhoto = setInterval(function(){
-    // INTERVALLI DI STAMPA IN PAGINA
-    for(let i=0; i<images.length; i++){
-        photo.innerHTML = 
-        `
-        <div class="item active first">
-            <img src="${images[i].image}" alt="" height="500px" width="400px">
-        </div> 
-        `
-    }
+// let changePhoto = setInterval(function(){
+//     // INTERVALLI DI STAMPA IN PAGINA
+//     for(let i=0; i<images.length; i++){
+//         photo.innerHTML = 
+//         `
+//         <div class="item active first">
+//             <img src="${images[i].image}" alt="" height="500px" width="400px">
+//         </div> 
+//         `
+//     }
+// },3000)
 
-},3000)
+let indexActive = 0;
 
 // CLICK ARROW AVANTI
-// next.addEventListener(`click`, function(){
+next.addEventListener(`click`, function(){
+    indexActive++;
+    photo.innerHTML = 
+    `
+    <div class="item active first">
+        <img src="${images[indexActive].image}" alt="" height="500px" width="400px">
+    </div> 
+    `
+})
+
+prev.addEventListener(`click`, function(){
+    indexActive--;
+    photo.innerHTML = 
+    `
+    <div class="item active first">
+        <img src="${images[indexActive].image}" alt="" height="500px" width="400px">
+    </div> 
+    `
+})
+
 //     let activeItem = document.querySelector(`.item.active`)
     
 //     let changeActive = activeItem.nextElementSibling
@@ -94,4 +114,3 @@ changePhoto = setInterval(function(){
 //     activeItem.classList.remove(`active`)
 
 //     changeActive.classList.add(`active`)
-// })
