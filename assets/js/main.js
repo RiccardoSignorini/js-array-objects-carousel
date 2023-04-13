@@ -101,6 +101,19 @@ pause.addEventListener('click', function(){
 
 // RIPRESA AUTO-CHANGE
 play.addEventListener('click', function(){
+    autoChange = setInterval(function(){
+        if(indexActive>=4){
+            indexActive = 0
+        } else{
+            indexActive++
+        }
+        photo.innerHTML = 
+        `
+        <div class="item active first">
+            <img src="${images[indexActive].image}" alt="" height="500px" width="400px">
+        </div> 
+        `
+    },3000)
     play.classList.remove('active')
     pause.classList.add('active')
 })
