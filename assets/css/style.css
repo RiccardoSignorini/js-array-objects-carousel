@@ -18,13 +18,13 @@ i:hover{
     opacity: 1;
 }
 
-/* .item{
+.item{
     display: none;
 }
 
 .item.active{
     display: inline;
-} */
+}
 
 #console div{
     display: inline-block;

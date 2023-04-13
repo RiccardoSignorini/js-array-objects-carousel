@@ -84,7 +84,11 @@ let indexActive = 0;
 
 // CLICK ARROW AVANTI
 next.addEventListener(`click`, function(){
-    indexActive++;
+    if(indexActive>=4){
+        indexActive = 0
+    } else{
+        indexActive++
+    }
     photo.innerHTML = 
     `
     <div class="item active first">
@@ -94,6 +98,11 @@ next.addEventListener(`click`, function(){
 })
 
 prev.addEventListener(`click`, function(){
+    if(indexActive==0){
+        indexActive = 5
+    } else{
+        indexActive--
+    }
     indexActive--;
     photo.innerHTML = 
     `
