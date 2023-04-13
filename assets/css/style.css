@@ -4,6 +4,10 @@
     margin: 0 auto;
 }
 
+#foto{
+    width: 400px;
+}
+
 #prev i, #next i{
     padding: 0.4rem;
     color: black;

@@ -72,25 +72,12 @@ const pause = document.querySelector('#pause')
 
 photo.innerHTML = 
 `
-<div class="item active first">
+<div class="position-relative">
     <img src="${images[0].image}" alt="" height="500px" width="400px">
+    <h3 class="position-absolute top-0 end-0 text-end">${images[0].title}</h3>
+    <p class="position-absolute bottom-0 end-0">${images[0].text}</p>
 </div> 
 `
-
-// INTERVALLI DI CAMBIO FOTO
-// let autoChange = setInterval(function(){
-//     if(indexActive>=4){
-//         indexActive = 0
-//     } else{
-//         indexActive++
-//     }
-//     photo.innerHTML = 
-//     `
-//     <div class="item active first">
-//         <img src="${images[indexActive].image}" alt="" height="500px" width="400px">
-//     </div> 
-//     `
-// },3000)
 
 // STOP AUTOPLAY
 pause.addEventListener('click', function(){
@@ -110,8 +97,10 @@ play.addEventListener('click', function(){
         }
         photo.innerHTML = 
         `
-        <div class="item active first">
+        <div class="position-relative">
             <img src="${images[indexActive].image}" alt="" height="500px" width="400px">
+            <h3 class="position-absolute top-0 end-0 text-end">${images[indexActive].title}</h3>
+            <p class="position-absolute bottom-0 end-0">${images[indexActive].text}</p>
         </div> 
         `
     },3000)
@@ -128,8 +117,10 @@ next.addEventListener('click', function(){
     }
     photo.innerHTML = 
     `
-    <div class="item active first">
+    <div class="position-relative">
         <img src="${images[indexActive].image}" alt="" height="500px" width="400px">
+        <h3 class="position-absolute top-0 end-0 text-end">${images[indexActive].title}</h3>
+        <p class="position-absolute bottom-0 end-0">${images[indexActive].text}</p>
     </div> 
     `
 })
@@ -143,8 +134,10 @@ prev.addEventListener(`click`, function(){
     }
     photo.innerHTML = 
     `
-    <div class="item active first">
+    <div class="position-relative">
         <img src="${images[indexActive].image}" alt="" height="500px" width="400px">
+        <h3 class="position-absolute top-0 end-0 text-end">${images[indexActive].title}</h3>
+        <p class="position-absolute bottom-0 end-0">${images[indexActive].text}</p>
     </div> 
     `
 })
